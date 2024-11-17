@@ -1,0 +1,32 @@
+{% extends 'webapp/base.html' %}
+
+{% block content %}
+{% load static %}
+
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    
+    <h5> Welcome, {{user}}! 👋 </h5>
+    
+    <hr>
+    
+    <a class="btn btn-outline-primary btn-sm" href="{% url 'create-task' %}">
+        
+        Create a new Task &nbsp; <i class="fa fa-plus-circle" aria-hidden="true"></i>
+        
+    </a>
+
+    <hr> 
+    <a class="btn btn-primary" type="button" href="{% url 'LoginGrp' %}"> Login Group &nbsp; <i class="fa fa-user-plus" aria-hidden="true"></i> </a>
+    <br>
+    <br>
+    <script> const incompleteButton = document.getElementById('incomplete-button');
+
+        incompleteButton.addEventListener('click', () => {
+          incompleteButton.classList.toggle('btn-success');
+        });
+     </script>
+</body>
+    {% endblock %}

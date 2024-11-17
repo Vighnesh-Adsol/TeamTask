@@ -1,0 +1,39 @@
+
+{% extends 'webapp/base.html' %}
+
+{% block content %}
+    
+    <body>
+
+        <br>
+        <br>
+
+        <div class="text-center">
+
+            <h3> TeamTasks... Manage tasks of your team members altogether.. </h3>
+
+            <br>
+
+            <h5> Keep track of your Tasks effectively! </h5>
+
+            <hr>
+            <br>
+
+            <a class="btn btn-info" type="button" href="{% url 'dashboard' %}"> Start Adding Your Tasks &nbsp; <i class="fa fa-pencil-square-o" aria-hidden="true"></i> </a>
+            <br>
+            <br>
+        {% if show %}
+            <a class="btn btn-primary" type="button" href="{% url 'crtGrp' %}"> Create Group &nbsp; <i class="fa fa-user-plus" aria-hidden="true"></i> </a>
+            <br>
+            <br>
+            <a class="btn btn-primary" type="button" href="{% url 'joinGrp' %}"> Join Group &nbsp; <i class="fa fa-user-plus" aria-hidden="true"></i> </a>
+      
+        </div>
+        <br>
+        <br>
+        <hr>
+        {% endif %}
+    </body>        
+
+
+{% endblock %}

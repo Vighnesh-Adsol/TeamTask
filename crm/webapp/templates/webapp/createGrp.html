@@ -1,0 +1,55 @@
+{% extends 'webapp/base.html' %}
+
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+
+    <body>
+
+        <div class="container bg-secondary shadow-md p-5 form-layout">
+
+            <h3> Create Group </h3>
+
+            <h6> Start adding in the required details for your Group. </h6>
+
+            <hr>
+            <br>
+
+            <form method="POST" autocomplete="off">
+
+                {% csrf_token %}
+
+                {{form.name|as_crispy_field}}
+
+               
+                <br>
+                <button type="submit" class="btn btn-primary"> 
+                    
+                    Create Group &nbsp; <i class="fa fa-users" aria-hidden="true"></i>
+
+                </button>
+                <i class="fa-solid fa-people-group"></i>
+                &nbsp;
+
+                <a href="{% url '' %}" class="btn btn-dark"> 
+
+
+                    Return &nbsp; <i class="fa fa-arrow-left" aria-hidden="true"></i>
+
+                </a>
+
+
+            </form>
+
+        </div>
+
+        <br>
+
+    </body>
+
+{% endblock %}
+
+
+
+

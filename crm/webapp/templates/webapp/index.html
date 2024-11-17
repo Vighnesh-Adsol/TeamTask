@@ -1,0 +1,36 @@
+{% extends 'webapp/base.html' %}
+
+{% block content %}
+    
+    <body>
+
+        <br>
+        <br>
+
+        <div class="text-center">
+
+            <h3> TeamTasks... Manage tasks of your team members altogether.. </h3>
+
+            <br>
+
+            <h5> Keep track of your Tasks effectively! </h5>
+
+            <hr>
+            <br>
+
+            <a class="btn btn-primary" type="button" href="{% url 'register' %}"> Create your account &nbsp; <i class="fa fa-user-plus" aria-hidden="true"></i> </a>
+           <br>
+           <br>
+            <a class="btn btn-primary" type="button" href="{% url 'my-login' %}"> Login account &nbsp; <i class="fa fa-user-plus" aria-hidden="true"></i> </a>
+            <br>
+
+        </div>
+        <br>
+        <br>
+        <hr>
+        
+
+    </body>        
+
+
+{% endblock %}

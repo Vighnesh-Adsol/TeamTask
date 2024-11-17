@@ -1,0 +1,22 @@
+
+.form-layout{
+
+    border-radius: 15px;
+    width: 500px;
+
+}
+
+.message-text{
+
+    color: white;
+
+}
+
+.btn-btn-info-btn-sm{
+    align-self: flex-end;
+}
+
+h3{
+    color: aliceblue;
+}
+

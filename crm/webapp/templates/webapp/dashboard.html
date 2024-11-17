@@ -1,0 +1,156 @@
+{% extends 'webapp/base.html' %}
+
+{% block content %}
+{% load static %}
+
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    
+    <h4> Welcome, <strong>{{user}}</strong>!👋 </h4>
+    <h5>You're currently working for team: <strong>{{gName}}</strong>  </h5>
+    <hr>
+    
+    <a class="btn btn-outline-primary btn-sm" href="{% url 'create-task' %}">
+        
+        Create a new Task &nbsp; <i class="fa fa-plus-circle" aria-hidden="true"></i>
+        
+    </a>
+
+    <hr> 
+    
+    <caption ><strong><i>Incomplete Tasks:</i></strong></caption>
+    <table class="table table-hover table-bordered" id="myTable">
+    
+        <thead class="table-light" >
+            
+            <tr>
+                
+                <th scope="col"> Sr No </th>
+                <th scope="col"> Task Name</th>
+                <th scope="col"> status </th>
+                <th scope="col"> Creator</th>
+                
+                <th scope="col"> Date </th>
+                
+                <th scope="col"> View </th>
+                
+            </tr>
+            
+        </thead>
+        
+        <tbody>
+            
+            {% if tasks %}
+            
+            {% for task in tasks %}
+            
+            <tr>
+                
+                <td></td>
+                
+                <td> {{task.task_name}} </td>
+                
+                <td>    <a href="{% url 'chg-status' task.id %}" class='{{classn}}' id="incomplete-button">
+                    Incomplete  <i class="fa fa-check" aria-hidden="true"></i> </td>
+                
+                <td>{{task.creator}} </td>
+                
+                <td> {{task.creation_date}} </td>
+                
+                <td> <a class="btn btn-warning btn-sm" href="{% url 'viewTask' task.id %}"> <i class="fa fa-eye" aria-hidden="true"></i> </a> </td>
+
+            </tr>
+            
+            {% endfor %}
+            
+            {% endif %}
+            
+            
+        </tbody>
+        
+        
+    </table>
+    
+    
+    <hr> 
+    <br>
+    <hr>
+    
+    <caption ><strong><i>Completed Tasks:</i></strong> 
+       <p align="right"><a class="btn btn-info btn-sm" href="{% url 'deleteAll_task' %}" > Delete All <i class="fa fa-trash" aria-hidden="true"></i> </a></p>
+    </caption> 
+    <table class="table table-hover table-bordered" id="myTable1">
+        
+        <thead class="table-light">
+            
+            <tr>
+                
+                <th scope="col"> Sr No </th>
+                <th scope="col"> Task Name</th>
+                <th scope="col"> status </th>
+                
+                
+                <th scope="col"> Date </th>
+                
+                <th scope="col"> View </th>
+                
+            </tr>
+            
+        </thead>
+        
+        <tbody>
+            
+            {% if fintask %}
+            
+            {% for task in fintask %}
+            
+            <tr>
+                
+                <td></td>
+                
+                <td> {{task.task_name}} </td>
+                
+                <td>    <a href="{% url 'chg-status' task.id %}" class="btn btn-success" > complete &nbsp;<i class="fa fa-check" aria-hidden="true"></i> </a> </td>
+                
+                
+                <td> {{task.creation_date}} </td>
+                
+                <td> <a class="btn btn-warning btn-sm" href="{% url 'viewTask' task.id %}"> <i class="fa fa-eye" aria-hidden="true"></i> </a> </td>
+                
+            </tr>
+            
+            {% endfor %}
+            
+            {% endif %}
+            
+            
+        </tbody>
+        
+        
+    </table>
+    
+    <script> 
+        window.onload = function() {
+            var table = document.getElementById("myTable");
+            var rows = table.getElementsByTagName("tr");
+
+            for (var i = 1; i < rows.length; i++) {
+                var cells = rows[i].cells;
+                cells[0].textContent = i ;
+            }
+
+            var table = document.getElementById("myTable1");
+            var rows = table.getElementsByTagName("tr");
+
+            for (var i = 1; i < rows.length; i++) {
+                var cells = rows[i].cells;
+                cells[0].textContent = i ;
+            }
+        };
+        
+       
+    </script>
+</body>
+    {% endblock %}

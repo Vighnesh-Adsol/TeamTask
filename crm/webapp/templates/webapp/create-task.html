@@ -1,0 +1,62 @@
+{% extends 'webapp/base.html' %}
+
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+
+    <body>
+
+        <div class="container bg-secondary shadow-md p-5 form-layout">
+
+            <h3> Create Task </h3>
+
+            <h6> Start adding in the required details for your Task. </h6>
+
+            <hr>
+            <br>
+
+            <form method="POST" autocomplete="off">
+
+                {% csrf_token %}
+
+                {{form.task_name|as_crispy_field}}
+
+                <br>
+
+                {{form.description|as_crispy_field}}
+
+                <br>
+
+                {{form.creator | as_crispy_field}}
+
+                <br>
+                <button type="submit" class="btn btn-primary"> 
+                    
+                    Create Task &nbsp; <i class="fa fa-check" aria-hidden="true"></i>
+
+                </button>
+
+                &nbsp;
+
+                <a href="{% url 'dashboard' %}" class="btn btn-dark"> 
+
+
+                    Return &nbsp; <i class="fa fa-arrow-left" aria-hidden="true"></i>
+
+                </a>
+
+
+            </form>
+
+        </div>
+
+        <br>
+
+    </body>
+
+{% endblock %}
+
+
+
+

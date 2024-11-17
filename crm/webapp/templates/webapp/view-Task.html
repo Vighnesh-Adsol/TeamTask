@@ -1,0 +1,62 @@
+{% extends 'webapp/base.html' %}
+
+{% block content %}
+
+    <div class="card">
+
+
+        <div class="card-body">
+
+            <i class="fa fa-user-circle-o" aria-hidden="true"></i> &nbsp;
+
+            <strong>   
+
+                {{task.task_name|upper}}
+    
+              
+    
+            </strong>
+    
+            <hr> 
+
+            <p> <strong> ID: </strong> {{task.id}} </p>
+
+            <p> <strong> Name: </strong> {{task.task_name}} </p>
+
+
+            <p> <strong> Status: </strong> 
+                {% if t_stat %}
+                Completed
+                {%else%}
+                Incomplete
+                {%endif%}
+
+             </p>
+
+            <p> <strong> Description: </strong> {{task.description}} </p>
+
+            <p> <strong>Creator Of the Task: </strong> {{task.creator}} </p>
+
+            <p> <strong> Creation date: </strong> {{task.creation_date}} </p>
+
+
+        </div>
+
+
+    </div>
+
+    <br>
+
+    <a href="{% url 'dashboard' %}" class="btn btn-secondary"> Return &nbsp; <i class="fa fa-arrow-left" aria-hidden="true"></i> </a>
+
+    &nbsp;
+
+    <a href="{% url 'update-task' task.id %}" class="btn btn-info"> Update record &nbsp; <i class="fa fa-plus" aria-hidden="true"></i> </a>
+
+    &nbsp;
+
+    <a href="{% url 'delete-task' task.id %}" class="btn btn-danger"> Delete &nbsp;<i class="fa fa-minus-square" aria-hidden="true"></i> </a>
+
+
+{% endblock %}
+
