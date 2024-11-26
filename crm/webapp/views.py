@@ -89,7 +89,8 @@ def dashboard(request):
                 group__name= group.name
             group = Group.objects.get(name=group__name)
             
-            
+            group_members= group.user_set.all()
+
             if group in request.user.groups.all():
             # User is authenticated and belongs to the specified group
                
@@ -97,11 +98,13 @@ def dashboard(request):
                 finished_tasks=Task_rec.objects.filter(status=True, group= group)
         
                 classn= "btn btn-danger"
+                
         
                 context = {'tasks':my_tasks,
                             'classn':classn,
                             'fintask':finished_tasks,
-                            'gName': group__name
+                            'gName': group__name,
+                            'members':group_members,
                             }
            
                 return render(request, 'webapp/dashboard.html', context=context)
@@ -131,6 +134,7 @@ def create_task(request):
             # Create the task and associate it with the user's group
             task = form.save(commit=False)
             task.group = user_group
+            task.creator= request.user
             task.save()
             return redirect("dashboard")
     context = {'form':form}

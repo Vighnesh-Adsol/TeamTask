@@ -5,19 +5,36 @@
 
 <head>
     <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+    <style>
+.form-select{
+    position: absolute;
+    right: 0;
+    width: 300px;
+}
+    </style>
 </head>
 <body>
     
     <h4> Welcome, <strong>{{user}}</strong>!👋 </h4>
     <h5>You're currently working for team: <strong>{{gName}}</strong>  </h5>
-    <hr>
     
-    <a class="btn btn-outline-primary btn-sm" href="{% url 'create-task' %}">
-        
-        Create a new Task &nbsp; <i class="fa fa-plus-circle" aria-hidden="true"></i>
-        
-    </a>
+      
+      <br>
+<hr>
 
+<div class="d-flex justify-content-between">
+    <a class="btn btn-outline-primary btn-sm" href="{% url 'create-task' %}">
+        Create a new Task &nbsp; <i class="fa fa-plus-circle" aria-hidden="true"></i>
+    </a>
+     <select class="form-select" style="width: 250px; margin-right: 110px">
+            <option selected>See Members in the Group</option>
+            {% for mem in members %}
+                <option disabled>{{ mem.username }}</option>
+            {% endfor %}
+        </select>
+    
+</div>
+     
     <hr> 
     
     <caption ><strong><i>Incomplete Tasks:</i></strong></caption>

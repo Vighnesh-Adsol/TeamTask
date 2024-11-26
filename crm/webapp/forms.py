@@ -46,7 +46,7 @@ class CreateTaskForm(forms.ModelForm):
     class Meta:
 
         model = Task_rec
-        fields = ['task_name', 'description' ,'creator']
+        fields = ['task_name', 'description']
 
 
 # - Update a record

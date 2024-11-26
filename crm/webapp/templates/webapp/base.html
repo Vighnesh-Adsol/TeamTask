@@ -11,7 +11,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-        <title> TeamTasks </title>
+        <title> TaskView </title>
 
         <link rel="stylesheet" type="text/css" href="https://bootswatch.com/5/zephyr/bootstrap.min.css">
 
@@ -38,11 +38,11 @@
                 {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
 
 
-                    <p id="message-timer" class="alert alert-success float-center text-center message-text"> 
+                <div class="alert alert-dismissible alert-success float-center text-center" id="message-timer" >
 
                         <i class="fa fa-check" aria-hidden="true"></i> &nbsp; {{message}}
 
-                    </p>
+                </div>
 
 
                 {% endif %}
@@ -50,13 +50,13 @@
                 {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
 
 
-                    <p id="message-timer" class="alert alert-danger float-center text-center message-text"> 
+                <div class="alert alert-dismissible alert-danger float-center text-center" id="message-timer" >
 
                         <i class="fa fa-cross" aria-hidden="true"></i> &nbsp; {{message}}
 
-                    </p>
+                </div>
 
-
+                   
                 {% endif %}
 
 
